@@ -4,16 +4,7 @@
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-role-assessor-portal.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-assessor-portal/alerts/)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-assessor-portal.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-assessor-portal/context:python)
 
-This is a skeleton project that can be used to quickly get a new
-[cisagov](https://github.com/cisagov) Ansible role GitHub project
-started, where that Ansible role requires an AWS test user for
-automated testing.
-
-This skeleton project contains [licensing information](LICENSE), as
-well as [pre-commit hooks](https://pre-commit.com) and [GitHub
-Actions](https://github.com/features/actions) configurations
-appropriate for an Ansible role, as well as the Terraform code to
-create the AWS test user.
+An Ansible role for installing the Assessor Portal.
 
 ## Pre-requisites ##
 
@@ -67,7 +58,10 @@ None.
 
 ## Role Variables ##
 
-None.
+* `bucket_name` - The name of the AWS S3 bucket where the Assessor Portal
+  tarball is stored.  Defaults to `cisa-cool-third-party-production`.
+* `tarball_object_name` - The name of the AWS S3 object that is the Assessor
+  Portal tarball.  Defaults to `assessor-portal-python-v1.1.1_test.tgz`.
 
 ## Dependencies ##
 
@@ -78,19 +72,12 @@ None.
 Here's how to use it in a playbook:
 
 ```yaml
-- hosts: all
+- hosts: assessor_portals
   become: yes
   become_method: sudo
   roles:
-    - skeleton
+    - assessor_portal
 ```
-
-## New Repositories from a Skeleton ##
-
-Please see our [Project Setup guide](https://github.com/cisagov/development-guide/tree/develop/project_setup)
-for step-by-step instructions on how to start a new repository from
-a skeleton. This will save you time and effort when configuring a
-new repository!
 
 ## Contributing ##
 
