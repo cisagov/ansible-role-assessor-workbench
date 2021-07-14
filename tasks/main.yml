@@ -1,2 +1,42 @@
 ---
-# tasks file for skeleton
+# Check if Assessor Portal is already installed in the expected place
+- name: Check if Assessor Portal is already installed
+  ansible.builtin.stat:
+    path: /opt/assessor-portal
+  register: assessorportal_directory
+
+- name: Install Assessor Portal
+  block:
+    - name: Grab Assessor Portal tarball from S3
+      amazon.aws.aws_s3:
+        bucket: "{{ bucket_name }}"
+        object: "{{ tarball_object_name }}"
+        dest: "/tmp/{{ tarball_object_name }}"
+        mode: get
+      become: no
+      delegate_to: localhost
+
+    - name: Copy the Assessor Portal tarball
+      ansible.builtin.copy:
+        src: /tmp/{{ tarball_object_name }}
+        dest: /tmp/{{ tarball_object_name }}
+        mode: 0644
+
+    - name: Delete local copy of Assessor Portal tarball
+      ansible.builtin.file:
+        path: "/tmp/{{ tarball_object_name }}"
+        state: absent
+      become: no
+      delegate_to: localhost
+
+    - name: Extract the Assessor Portal tarball
+      ansible.builtin.unarchive:
+        src: /tmp/{{ tarball_object_name }}
+        dest: /opt
+        remote_src: yes
+
+    - name: Delete remote copy of Assessor Portal tarball
+      ansible.builtin.file:
+        path: /tmp/{{ tarball_object_name }}
+        state: absent
+  when: not assessorportal_directory.stat.exists
