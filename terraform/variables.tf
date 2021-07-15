@@ -16,12 +16,10 @@ variable "production_bucket_name" {
   default     = "cisa-cool-third-party-production"
 }
 
-variable "production_objects" {
-  type        = list(string)
+variable "production_object" {
+  type        = string
   description = "The Assessor Portal tarball object inside the production bucket."
-  default = [
-    "assessor-portal-python-v1.1.1_test.tgz",
-  ]
+  default     = "assessor-portal-python-v1.1.1_test.tgz"
 }
 
 variable "staging_bucket_name" {
@@ -30,12 +28,10 @@ variable "staging_bucket_name" {
   default     = "cisa-cool-third-party-staging"
 }
 
-variable "staging_objects" {
-  type        = list(string)
+variable "staging_object" {
+  type        = string
   description = "The Assessor Portal tarball object inside the staging bucket."
-  default = [
-    "assessor-portal-python-v1.1.1_test.tgz",
-  ]
+  default     = "assessor-portal-python-v1.1.1_test.tgz"
 }
 
 variable "tags" {

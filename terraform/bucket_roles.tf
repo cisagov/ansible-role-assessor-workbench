@@ -24,7 +24,7 @@ module "production_bucket_access" {
   entity_name = aws_iam_user.user.name
   role_name   = "ThirdPartyBucketRead-${aws_iam_user.user.name}"
   s3_bucket   = var.production_bucket_name
-  s3_objects  = var.production_objects
+  s3_objects  = [var.production_object]
 }
 module "staging_bucket_access" {
   source = "github.com/cisagov/s3-read-role-tf-module"
@@ -36,5 +36,5 @@ module "staging_bucket_access" {
   entity_name = aws_iam_user.user.name
   role_name   = "ThirdPartyBucketRead-${aws_iam_user.user.name}"
   s3_bucket   = var.staging_bucket_name
-  s3_objects  = var.staging_objects
+  s3_objects  = [var.staging_object]
 }
