@@ -65,7 +65,7 @@ None.
 
 ## Dependencies ##
 
-None.
+* [cisagov/ansible-role-docker](https://github.com/cisagov/ansible-role-docker)
 
 ## Example Playbook ##
 
