@@ -15,13 +15,16 @@ lint: |
   ansible-lint
   flake8
 platforms:
-  - name: amazonlinux2_systemd
-    image: geerlingguy/docker-amazonlinux2-ansible:latest
-    privileged: yes
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    command: /lib/systemd/systemd
-    pre_build_image: yes
+  # Amazon Linux 2 doesn't appear to support Docker Compose:
+  # "No package matching 'docker-compose' found available, installed
+  # or updated"
+  # - name: amazonlinux2_systemd
+  #   image: geerlingguy/docker-amazonlinux2-ansible:latest
+  #   privileged: yes
+  #   volumes:
+  #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  #   command: /lib/systemd/systemd
+  #   pre_build_image: yes
   - name: debian9_systemd
     image: geerlingguy/docker-debian9-ansible:latest
     privileged: yes

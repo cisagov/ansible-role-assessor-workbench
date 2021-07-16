@@ -1,4 +1,6 @@
 ---
+- src: https://github.com/cisagov/ansible-role-docker
+  name: docker
 - src: https://github.com/cisagov/ansible-role-pip
   name: pip
 - src: https://github.com/cisagov/ansible-role-python

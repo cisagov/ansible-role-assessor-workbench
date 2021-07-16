@@ -1,0 +1,7 @@
+---
+# defaults file for ansible-role-assessor-portal
+
+# The name of the AWS S3 bucket where the Assessor Portal tarball is stored
+bucket_name: cisa-cool-third-party-production
+# The name of the AWS S3 object that is the Assessor Portal tarball
+tarball_object_name: assessor-portal-python-v1.1.1_test.tgz
