@@ -61,17 +61,10 @@ None.
 
 ## Role Variables ##
 
-- `bucket_name` - The name of the AWS S3 bucket where the Assessor Portal
-  tarball is stored.  Defaults to `cisa-cool-third-party-production`.
-- `tarball_object_name` - The name of the AWS S3 object that is the Assessor
-  Portal tarball.  Defaults to `assessor-portal-python-v1.1.1_test.tgz`.
-
-<!--
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
-| optional_variable | Describe its purpose. | `default_value` | No |
-| required_variable | Describe its purpose. | n/a | Yes |
--->
+| bucket_name | The name of the AWS S3 bucket where the Assessor Portal tarball is stored. | `cisa-cool-third-party-production` | No |
+| tarball_object_name | The name of the AWS S3 object that is the Assessor Portal tarball. | `assessor-portal-python-v1.1.1_test.tgz` | No |
 
 ## Dependencies ##
 
