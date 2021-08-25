@@ -15,16 +15,19 @@ permissions. This only needs to be run once per project, per AWS
 account. This user can also be used to run the Molecule tests on your
 local machine.
 
-Before the build user can be created, the following profile must exist in
-your AWS credentials file:
+Before the build user can be created, you will need a profile in your
+AWS credentials file that allows you to read and write your remote
+Terraform state.  (You almost certainly do not want to use local
+Terraform state for this long-lived build user.)  If the build user is
+to be created in the CISA COOL environment, for example, then you will
+need the `cool-terraform-backend` profile.
 
-- `cool-terraform-backend`
-
-The easiest way to set up that profile is to use our
+The easiest way to set up the Terraform remote state profile is to
+make use of our
 [`aws-profile-sync`](https://github.com/cisagov/aws-profile-sync)
 utility. Follow the usage instructions in that repository before
-continuing with the next steps. Note that you will need to know where
-your team stores their remote profile data in order to use
+continuing with the next steps, and note that you will need to know
+where your team stores their remote profile data in order to use
 [`aws-profile-sync`](https://github.com/cisagov/aws-profile-sync).
 
 To create the build user, follow these instructions:
@@ -58,10 +61,10 @@ None.
 
 ## Role Variables ##
 
-- `bucket_name` - The name of the AWS S3 bucket where the Assessor Portal
-  tarball is stored.  Defaults to `cisa-cool-third-party-production`.
-- `tarball_object_name` - The name of the AWS S3 object that is the Assessor
-  Portal tarball.  Defaults to `assessor-portal-python-v1.1.1_test.tgz`.
+| Variable | Description | Default | Required |
+|----------|-------------|---------|----------|
+| bucket_name | The name of the AWS S3 bucket where the Assessor Portal tarball is stored. | `cisa-cool-third-party-production` | No |
+| tarball_object_name | The name of the AWS S3 object that is the Assessor Portal tarball. | `assessor-portal-python-v1.1.1_test.tgz` | No |
 
 ## Dependencies ##
 
