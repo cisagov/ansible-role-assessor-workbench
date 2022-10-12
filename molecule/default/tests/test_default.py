@@ -14,14 +14,14 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 @pytest.mark.parametrize(
     "f",
-    ["/opt/assessor-portal", "/opt/assessor-portal/docker-compose.yml"],
+    ["/opt/assessor-workbench", "/opt/assessor-workbench/docker-compose.yml"],
 )
 def test_files(host, f):
     """Test that the expected files and directories are present."""
     assert host.file(f).exists
 
 
-@pytest.mark.parametrize("f", ["/tmp/assessor-portal-python-v1.1.1_test.tgz"])
+@pytest.mark.parametrize("f", ["/tmp/assessor-workbench-python-v1.1.1_test.tgz"])
 def test_files2(host, f):
     """Test that the expected files and directories were deleted."""
     assert not host.file(f).exists

@@ -2,6 +2,6 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: Include ansible-role-assessor-portal
+    - name: Include ansible-role-assessor-workbench
       ansible.builtin.include_role:
-        name: ansible-role-assessor-portal
+        name: ansible-role-assessor-workbench

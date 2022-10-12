@@ -1,10 +1,10 @@
-# ansible-role-assessor-portal #
+# ansible-role-assessor-workbench #
 
-[![GitHub Build Status](https://github.com/cisagov/ansible-role-assessor-portal/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-assessor-portal/actions)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-role-assessor-portal.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-assessor-portal/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-assessor-portal.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-assessor-portal/context:python)
+[![GitHub Build Status](https://github.com/cisagov/ansible-role-assessor-workbench/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-assessor-workbench/actions)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-role-assessor-workbench.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-assessor-workbench/alerts/)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-assessor-workbench.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-assessor-workbench/context:python)
 
-An Ansible role for installing the Assessor Portal.
+An Ansible role for installing the Assessor Workbench.
 
 ## Pre-requisites ##
 
@@ -52,7 +52,7 @@ of the Project Setup README.
 
 If you have appropriate permissions for the repository you can view
 existing secrets on the [appropriate
-page](https://github.com/cisagov/ansible-role-assessor-portal/settings/secrets)
+page](https://github.com/cisagov/ansible-role-assessor-workbench/settings/secrets)
 in the repository's settings.
 
 ## Requirements ##
@@ -63,8 +63,8 @@ None.
 
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
-| bucket_name | The name of the AWS S3 bucket where the Assessor Portal tarball is stored. | `cisa-cool-third-party-production` | No |
-| tarball_object_name | The name of the AWS S3 object that is the Assessor Portal tarball. | `assessor-portal-python-v1.1.1_test.tgz` | No |
+| bucket_name | The name of the AWS S3 bucket where the Assessor Workbench tarball is stored. | `cisa-cool-third-party-production` | No |
+| tarball_object_name | The name of the AWS S3 object that is the Assessor Workbench tarball. | `assessor-workbench-python-v1.1.1_test.tgz` | No |
 
 ## Dependencies ##
 
@@ -75,11 +75,11 @@ None.
 Here's how to use it in a playbook:
 
 ```yaml
-- hosts: assessor_portals
+- hosts: assessor_workbenches
   become: yes
   become_method: sudo
   roles:
-    - assessor_portal
+    - assessor_workbench
 ```
 
 ## Contributing ##
