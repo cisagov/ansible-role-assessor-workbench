@@ -20,11 +20,11 @@ output "staging_role" {
 
 output "user" {
   value       = aws_iam_user.user
-  description = "The IAM user being created to test the cisagov/ansible-role-assessor-portal Ansible role."
+  description = "The IAM user being created to test the cisagov/ansible-role-assessor-workbench Ansible role."
 }
 
 output "user_access_key" {
   value       = aws_iam_access_key.key
-  description = "The access key for the IAM user being created to test the cisagov/ansible-role-assessor-portal Ansible role."
+  description = "The access key for the IAM user being created to test the cisagov/ansible-role-assessor-workbench Ansible role."
   sensitive   = true
 }

@@ -12,26 +12,26 @@ variable "aws_region" {
 
 variable "production_bucket_name" {
   type        = string
-  description = "The name of the S3 bucket where the production Assessor Portal tarball lives."
+  description = "The name of the S3 bucket where the production Assessor Workbench tarball lives."
   default     = "cisa-cool-third-party-production"
 }
 
 variable "production_object" {
   type        = string
-  description = "The Assessor Portal tarball object inside the production bucket."
-  default     = "assessor-portal-python-v1.1.1_test.tgz"
+  description = "The Assessor Workbench tarball object inside the production bucket."
+  default     = "assessor-workbench-python-v1.1.1_test.tgz"
 }
 
 variable "staging_bucket_name" {
   type        = string
-  description = "The name of the S3 bucket where the staging Assessor Portal tarball lives."
+  description = "The name of the S3 bucket where the staging Assessor Workbench tarball lives."
   default     = "cisa-cool-third-party-staging"
 }
 
 variable "staging_object" {
   type        = string
-  description = "The Assessor Portal tarball object inside the staging bucket."
-  default     = "assessor-portal-python-v1.1.1_test.tgz"
+  description = "The Assessor Workbench tarball object inside the staging bucket."
+  default     = "assessor-workbench-python-v1.1.1_test.tgz"
 }
 
 variable "tags" {
@@ -40,6 +40,6 @@ variable "tags" {
 
   default = {
     Team        = "VM Fusion - Development"
-    Application = "ansible-role-assessor-portal testing"
+    Application = "ansible-role-assessor-workbench testing"
   }
 }

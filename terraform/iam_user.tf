@@ -2,7 +2,7 @@
 resource "aws_iam_user" "user" {
   provider = aws.users
 
-  name = "test-ansible-role-assessor-portal"
+  name = "test-ansible-role-assessor-workbench"
 }
 resource "aws_iam_access_key" "key" {
   provider = aws.users

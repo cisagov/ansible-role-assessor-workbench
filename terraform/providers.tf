@@ -9,7 +9,7 @@ provider "aws" {
   region = var.aws_region
 }
 
-# The provider used to create a role that can read the Assessor Portal tarball
+# The provider used to create a role that can read the Assessor Workbench tarball
 # from a production S3 bucket
 provider "aws" {
   alias = "images_production"
@@ -23,7 +23,7 @@ provider "aws" {
   region = var.aws_region
 }
 
-# The provider used to create a role that can read the Assessor Portal tarball
+# The provider used to create a role that can read the Assessor Workbench tarball
 # from a staging S3 bucket
 provider "aws" {
   alias = "images_staging"
