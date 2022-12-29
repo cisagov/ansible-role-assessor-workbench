@@ -1,8 +1,7 @@
 # ansible-role-assessor-workbench #
 
 [![GitHub Build Status](https://github.com/cisagov/ansible-role-assessor-workbench/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-assessor-workbench/actions)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-role-assessor-workbench.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-assessor-workbench/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-assessor-workbench.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-assessor-workbench/context:python)
+[![CodeQL](https://github.com/cisagov/ansible-role-assessor-workbench/workflows/CodeQL/badge.svg)](https://github.com/cisagov/ansible-role-assessor-workbench/actions/workflows/codeql-analysis.yml)
 
 An Ansible role for installing the Assessor Workbench.
 
@@ -78,8 +77,10 @@ Here's how to use it in a playbook:
 - hosts: assessor_workbenches
   become: yes
   become_method: sudo
-  roles:
-    - assessor_workbench
+  tasks:
+    - name: Install Assessor Workbench
+      ansible.builtin.include_role:
+        name: assessor_workbench
 ```
 
 ## Contributing ##
@@ -102,4 +103,4 @@ with this waiver of copyright interest.
 
 ## Author Information ##
 
-First Last - <first.last@trio.dhs.gov>
+David Redmin - <david.redmin@trio.dhs.gov>
