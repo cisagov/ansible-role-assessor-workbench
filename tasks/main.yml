@@ -6,6 +6,7 @@
   register: assessorworkbench_directory
 
 - name: Install Assessor Workbench
+  when: not assessorworkbench_directory.stat.exists
   block:
     - name: Grab Assessor Workbench tarball from S3
       amazon.aws.aws_s3:
@@ -39,4 +40,3 @@
       ansible.builtin.file:
         path: /tmp/{{ tarball_object_name }}
         state: absent
-  when: not assessorworkbench_directory.stat.exists
