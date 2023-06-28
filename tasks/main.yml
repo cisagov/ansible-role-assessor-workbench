@@ -12,7 +12,7 @@
       amazon.aws.aws_s3:
         bucket: "{{ assessor_workbench_bucket_name }}"
         object: "{{ assessor_workbench_tarball_object_name }}"
-        dest: "/tmp/{{ assessor_workbench_tarball_object_name }}"
+        dest: /tmp/{{ assessor_workbench_tarball_object_name }}
         mode: get
       become: no
       delegate_to: localhost
@@ -25,7 +25,7 @@
 
     - name: Delete local copy of Assessor Workbench tarball
       ansible.builtin.file:
-        path: "/tmp/{{ assessor_workbench_tarball_object_name }}"
+        path: /tmp/{{ assessor_workbench_tarball_object_name }}
         state: absent
       become: no
       delegate_to: localhost
