@@ -3,10 +3,10 @@
 - name: Check if Assessor Workbench is already installed
   ansible.builtin.stat:
     path: /opt/assessor-workbench
-  register: assessorworkbench_directory
+  register: assessor_workbench_directory
 
 - name: Install Assessor Workbench
-  when: not assessorworkbench_directory.stat.exists
+  when: not assessor_workbench_directory.stat.exists
   block:
     - name: Grab Assessor Workbench tarball from S3
       amazon.aws.aws_s3:
