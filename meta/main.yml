@@ -19,9 +19,9 @@ galaxy_info:
   platforms:
     # Amazon Linux 2023 doesn't appear to support Docker Compose:
     # "No package docker-compose available."
-    # - name: Amazon Linux 2023
+    # - name: Amazon Linux
     #   versions:
-    #     - any
+    #     - "2023"
     - name: Debian
       versions:
         - buster
@@ -29,14 +29,13 @@ galaxy_info:
         - bookworm
     - name: Fedora
       versions:
-        - "36"
         - "37"
+        - "38"
     - name: Kali
       versions:
         - "2023"
     - name: Ubuntu
       versions:
-        - bionic
         - focal
         - jammy
   role_name: assessor_workbench
