@@ -1,7 +1,6 @@
 ---
-# defaults file for ansible-role-assessor-workbench
-
-# The name of the AWS S3 bucket where the Assessor Workbench tarball is stored
-bucket_name: cisa-cool-third-party-production
+# The name of the AWS S3 bucket where the Assessor Workbench tarball
+# is stored
+assessor_workbench_bucket_name: cisa-cool-third-party-production
 # The name of the AWS S3 object that is the Assessor Workbench tarball
-tarball_object_name: assessor-workbench-python-v1.1.1_test.tgz
+assessor_workbench_tarball_object_name: assessor-workbench-python-v1.1.1_test.tgz

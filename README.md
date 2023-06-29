@@ -62,8 +62,8 @@ None.
 
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
-| bucket_name | The name of the AWS S3 bucket where the Assessor Workbench tarball is stored. | `cisa-cool-third-party-production` | No |
-| tarball_object_name | The name of the AWS S3 object that is the Assessor Workbench tarball. | `assessor-workbench-python-v1.1.1_test.tgz` | No |
+| assessor_workbench_bucket_name | The name of the AWS S3 bucket where the Assessor Workbench tarball is stored. | `cisa-cool-third-party-production` | No |
+| assessor_workbench_tarball_object_name | The name of the AWS S3 object that is the Assessor Workbench tarball. | `assessor-workbench-python-v1.1.1_test.tgz` | No |
 
 ## Dependencies ##
 
@@ -103,4 +103,4 @@ with this waiver of copyright interest.
 
 ## Author Information ##
 
-David Redmin - <david.redmin@trio.dhs.gov>
+David Redmin - <david.redmin@gwe.cisa.dhs.gov>

@@ -3,40 +3,40 @@
 - name: Check if Assessor Workbench is already installed
   ansible.builtin.stat:
     path: /opt/assessor-workbench
-  register: assessorworkbench_directory
+  register: assessor_workbench_directory
 
 - name: Install Assessor Workbench
+  when: not assessor_workbench_directory.stat.exists
   block:
     - name: Grab Assessor Workbench tarball from S3
       amazon.aws.aws_s3:
-        bucket: "{{ bucket_name }}"
-        object: "{{ tarball_object_name }}"
-        dest: "/tmp/{{ tarball_object_name }}"
+        bucket: "{{ assessor_workbench_bucket_name }}"
+        dest: /tmp/{{ assessor_workbench_tarball_object_name }}
         mode: get
+        object: "{{ assessor_workbench_tarball_object_name }}"
       become: no
       delegate_to: localhost
 
     - name: Copy the Assessor Workbench tarball
       ansible.builtin.copy:
-        src: /tmp/{{ tarball_object_name }}
-        dest: /tmp/{{ tarball_object_name }}
+        dest: /tmp/{{ assessor_workbench_tarball_object_name }}
         mode: 0644
+        src: /tmp/{{ assessor_workbench_tarball_object_name }}
 
     - name: Delete local copy of Assessor Workbench tarball
       ansible.builtin.file:
-        path: "/tmp/{{ tarball_object_name }}"
+        path: /tmp/{{ assessor_workbench_tarball_object_name }}
         state: absent
       become: no
       delegate_to: localhost
 
     - name: Extract the Assessor Workbench tarball
       ansible.builtin.unarchive:
-        src: /tmp/{{ tarball_object_name }}
         dest: /opt
         remote_src: yes
+        src: /tmp/{{ assessor_workbench_tarball_object_name }}
 
     - name: Delete remote copy of Assessor Workbench tarball
       ansible.builtin.file:
-        path: /tmp/{{ tarball_object_name }}
+        path: /tmp/{{ assessor_workbench_tarball_object_name }}
         state: absent
-  when: not assessorworkbench_directory.stat.exists
