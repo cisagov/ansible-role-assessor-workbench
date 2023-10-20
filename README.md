@@ -74,8 +74,8 @@ None.
 Here's how to use it in a playbook:
 
 ```yaml
-- hosts: assessor_workbenches
-  become: yes
+- hosts: all
+  become: true
   become_method: sudo
   tasks:
     - name: Install Assessor Workbench
