@@ -5,6 +5,11 @@
     path: /opt/assessor-workbench
   register: assessor_workbench_directory
 
+- name: Install tar
+  ansible.builtin.package:
+    name:
+      - tar
+
 - name: Install Assessor Workbench
   when: not assessor_workbench_directory.stat.exists
   block:
