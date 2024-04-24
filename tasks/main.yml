@@ -30,6 +30,11 @@
       become: false
       delegate_to: localhost
 
+    - name: Install tar
+      ansible.builtin.package:
+        name:
+          - tar
+
     - name: Extract the Assessor Workbench tarball
       ansible.builtin.unarchive:
         dest: /opt
