@@ -14,7 +14,7 @@
         dest: /tmp/{{ assessor_workbench_tarball_object_name }}
         mode: get
         object: "{{ assessor_workbench_tarball_object_name }}"
-      become: no
+      become: false
       delegate_to: localhost
 
     - name: Copy the Assessor Workbench tarball
@@ -27,13 +27,13 @@
       ansible.builtin.file:
         path: /tmp/{{ assessor_workbench_tarball_object_name }}
         state: absent
-      become: no
+      become: false
       delegate_to: localhost
 
     - name: Extract the Assessor Workbench tarball
       ansible.builtin.unarchive:
         dest: /opt
-        remote_src: yes
+        remote_src: true
         src: /tmp/{{ assessor_workbench_tarball_object_name }}
 
     - name: Delete remote copy of Assessor Workbench tarball
