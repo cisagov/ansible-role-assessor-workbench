@@ -9,7 +9,7 @@
   when: not assessor_workbench_directory.stat.exists
   block:
     - name: Grab Assessor Workbench tarball from S3
-      amazon.aws.aws_s3:
+      amazon.aws.s3_object:
         bucket: "{{ assessor_workbench_bucket_name }}"
         dest: /tmp/{{ assessor_workbench_tarball_object_name }}
         mode: get
