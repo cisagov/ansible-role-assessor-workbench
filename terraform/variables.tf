@@ -6,6 +6,7 @@
 
 variable "terraform_state_bucket" {
   description = "The name of the S3 bucket where Terraform state is stored."
+  nullable    = false
   type        = string
 }
 
@@ -16,9 +17,10 @@ variable "terraform_state_bucket" {
 # ------------------------------------------------------------------------------
 
 variable "aws_region" {
-  type        = string
-  description = "The AWS region to deploy into (e.g. us-east-1)."
   default     = "us-east-1"
+  description = "The AWS region to deploy into (e.g. us-east-1)."
+  nullable    = false
+  type        = string
 }
 
 variable "production_bucket_name" {
@@ -46,11 +48,11 @@ variable "staging_object" {
 }
 
 variable "tags" {
-  type        = map(string)
-  description = "Tags to apply to all AWS resources created"
-
   default = {
     Team        = "VM Fusion - Development"
     Application = "ansible-role-assessor-workbench testing"
   }
+  description = "Tags to apply to all AWS resources created"
+  nullable    = false
+  type        = map(string)
 }
